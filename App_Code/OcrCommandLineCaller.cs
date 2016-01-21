@@ -9,15 +9,11 @@ using System.Web;
 public class OcrCommandLineCaller
 {
     //This class was built using info from this SO question 
-    //http://stackoverflow.com/questions/12925748/iapplicationactivationmanageractivateapplication-in-c
+    // http://stackoverflow.com/questions/12925748/iapplicationactivationmanageractivateapplication-in-c
     public static void StartOcr(string fileName)
     {
-        ApplicationActivationManager appActiveManager = new ApplicationActivationManager();//Class not registered
+        ApplicationActivationManager appActiveManager = new ApplicationActivationManager();
         uint pid;
-        //The first arg in ActivateApplication is found in your registry at
-        //HKEY_CURRENT_USER\Software\Classes\ActivatableClasses\Package\Some_Sort_Of_Guid\Server\App.App....\AppUserModelId
-
-        //2ca0072b-e230-42c2-a5f2-6ee47ccce84d
         appActiveManager.ActivateApplication(Config.BOCRWindowAppPackage, fileName, ActivateOptions.NoSplashScreen, out pid);
         System.Diagnostics.Process proc = null;
         foreach (var p in System.Diagnostics.Process.GetProcesses())

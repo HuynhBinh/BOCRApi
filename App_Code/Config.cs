@@ -14,8 +14,5 @@ public class Config
 
     public Config()
     {
-        //
-        // TODO: Add constructor logic here
-        //
     }
 }

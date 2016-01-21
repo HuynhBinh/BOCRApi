@@ -70,7 +70,7 @@ public class Service : IService
         }
         catch (Exception ex)
         {
-            return "OCR Failed. Try another image PNG 40 - 2600 px";
+            return "Exception";
         }
 
 
